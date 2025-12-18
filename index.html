@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Starveild Institute</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+body {
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.navbar {
+    padding: 15px 30px;
+    background: rgb(20, 15, 60);
+    backdrop-filter: blur(6px);
+}
+.navbar-brand,.nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+.navbar-brand {
+    font-family: "DM Serif Display";
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+}
+.navbar-nav {
+    gap: 10px;
+}
+.nav-link {
+    font-family: Raleway;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    position: relative;
+}
+.nav-link:hover {
+    color: white !important;
+}
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 30%;
+}
+.hero-section {
+    background-image: url('header.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.hero-title {
+    font-size: 3rem;
+    font-weight: light;
+    margin-bottom: 20px;
+    font-family: DM Serif Display;
+    font-style: italic;
+    text-shadow: 0px 0px 30px #fff, 1px 1px 10px #280488;
+}
+.hero-subtitle {
+    font-size: 1.0rem;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    font-family: Raleway;
+    font-weight: bold;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: light;
+    position: relative;
+    font-family: DM Serif Display;
+}
+.section-title:after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    margin: 15px auto;
+}
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-10px);
+}
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+.card-title {
+    font-weight: light;
+    font-family: DM Serif Display;
+    font-style: italic;
+}
+.card-text {
+    color: #555;
+    font-family: Raleway;
+}
+.footer {
+    color: white;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+.footer-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-family: DM Serif Display;
+}
+.footer-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+table, th, td {
+    width: 50%;
+}
+</style>
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid px-4">
+    <div class="d-flex align-items-center flex-nowrap w-100">
+      <a class="navbar-brand me-auto" href="index.html">
+        The Starveil Institute of Magic and Arts
+      </a>
+      <br>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="grade_calculator.html">Calculator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="clubs.html">Guilds</a>
+        </li>
+      </ul>
+    </div>
+</div>
+</nav>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Welcome to The Starveil Institute of Magic and Arts!</h1>
+            <p class="hero-subtitle">"Forging minds, wielding magic, discovering your power."</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container" id="about">
+        <h2 class="section-title"style="font-family: DM Serif Display; ">About Our Institute</h2>
+        <div class="row">
+            <div class="col-md-6" style="margin-top: -30px; margin-bottom: 20px;">
+                <p>The Starveil Institute of Magic and Arts is a distinguished institution devoted to nurturing gifted casters and guiding them in the mastery of magical arts. With a rich tradition of enchanting education spanning generations, we take pride in fostering both skill and wisdom in every student.</p>
+                <p>Our mystical halls, expert faculty, and immersive curriculum provide an environment where students can excel academically, creatively, and socially, preparing them to wield magic responsibly and explore the wonders of the magical world.</p>
+            </div>
+            <div class="col-md-6" style="margin-top: -25px;">
+                <img src="about.jpg" alt="School Building" class="img-fluid rounded">
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="container mt-5">
+        <h2 class="section-title">Our Paths</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="arts.jpg" class="card-img-top" alt="Arts Program">
+                    <div class="card-body">
+                        <h5 class="card-title">Path of Arts and Aeriality</h5>
+                        <p class="card-text">Casters explore the intersection magic, art, and movement. From enchanted music to broom-riding, they learn to harness magic as a medium of creativity. Training emphasizes imagination, coordination, and showmanship, encouraging Casters to stay creative.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="enchant.jpg" class="card-img-top" alt="Arts Program">
+                    <div class="card-body">
+                        <h5 class="card-title">Path of Enchantment and Crafting</h5>
+                        <p class="card-text">This path centers on the creation and enhancement of magical objects. Casters learn how to imbue everyday items with spells, craft charms and talismans, and design enchanted tools for practical or artistic use.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="summon.jpg" class="card-img-top" alt="Summoning Program">
+                    <div class="card-body">
+                        <h5 class="card-title">Path of Conjuration & Summoning</h5>
+                        <p class="card-text">Casters learn to safely summon, control, and bind magical entities, from tiny familiars to complex constructs. This path emphasizes precision, responsibility, and creative application of conjuration magic.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="plant.jpg" class="card-img-top" alt="Elements Program">
+                    <div class="card-body">
+                        <h5 class="card-title">Path of Elemental & Environmental Manipulation</h5>
+                        <p class="card-text">This path trains casters to harness elemental energies for combat, protection, or artistic expression. Casters also explore environmental magic, such as enhancing flora or influencing weather patterns.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="lightshadow.jpg" class="card-img-top" alt="Light and Shadow Program">
+                    <div class="card-body">
+                        <h5 class="card-title">Path of Light & Shadow Casting</h5>
+                        <p class="card-text">Casters learn to balance the forces of light and darkness, practicing spells that heal, shield, or conceal. This path encourages ethical understanding of magic’s impact, as well as strategic use in various magical scenarios.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="reality.jpg" class="card-img-top" alt="Reality Program">
+                    <div class="card-body">
+                        <h5 class="card-title">Path of Mind & Reality Studies</h5>
+                        <p class="card-text">Reserved for the most talented Casters, this path explores telepathy, illusions, spatial manipulation, and interdimensional studies. Ethical responsibility, control, and deep theoretical knowledge are essential components of this path.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: rgb(20, 15, 60); text-align: center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="footer-title">The Starveil Institute of Magic and Arts</h3>
+                    <p style="font-family: Raleway;">0807 Starfall Way<br>Aurelion Hollow, Luminal Crown 0218<br>Phone: (67) 1205-0218</p>
+                </div>
+    <table style="font-family: Raleway;">
+    <thead>
+        <tr>
+            <th class="footer-title" style="font-weight: lighter;">Quick Links</th>
+            <th class="footer-title" style="font-weight: lighter;">Connect With Us</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="#" class="footer-link">Admissions</a></td>
+            <td><a href="https://www.facebook.com/" class="footer-link">Facebook</a></td>
+        </tr>
+        <tr>
+            <td><a href="#" class="footer-link">Calendar</a></td>
+            <td><a href="https://x.com/" class="footer-link">Twitter</a></td>
+        </tr>
+        <tr>
+            <td><a href="#" class="footer-link">Parent Portal</a></td>
+            <td><a href="https://www.instagram.com/" class="footer-link">Instagram</a></td>
+        </tr>
+        <tr>
+            <td><a href="#" class="footer-link">Staff Directory</a></td>
+            <td><a href="https://www.youtube.com/" class="footer-link">YouTube</a></td>
+        </tr>
+    </tbody>
+</table>
+
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2025 The Starveil Institute of Magic and Arts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | Starfield Institute</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+body {
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.navbar {
+    padding: 15px 30px;
+    background: rgba(20, 15, 60, 0.6);
+    backdrop-filter: blur(6px);
+}
+.navbar-brand,.nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+.navbar-brand {
+    font-family: "DM Serif Display";
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+}
+.navbar-nav {
+    gap: 10px;
+}
+.nav-link {
+    font-family: Raleway;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    position: relative;
+}
+.nav-link:hover {
+    color: white !important;
+}
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 30%;
+}
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.349);      
+    border-radius: 4px;          
+    padding: 0.25rem 0.5rem;      
+    width: auto;                  
+    height: auto;
+    background-color: rgba(0,0,0,0.3); 
+}
+.container {
+    max-width: 600px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(128, 0, 0, 0.1);
+    background-color: rgba(157, 152, 233, 0.233);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+h2 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+.form-control {
+    margin-bottom: 15px;
+}
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+#student_info {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: rgb(185, 146, 247);
+    border-left: rgb(24, 24, 63);
+    border-radius: 5px;
+}
+#summary {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-family: monospace;
+}
+#output {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(255, 215, 0, 0.2);
+    border-radius: 5px;
+    margin-top: 20px;
+        }
+.input-group-text {
+    background-color: rgb(185, 146, 247);
+    color: rgb(24, 24, 63);
+    min-width: 80px; 
+    font-family: Raleway;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.grades-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.grade-input-group {
+    margin-bottom: 35px;
+}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid px-4">
+    <div class="d-flex align-items-center flex-nowrap w-100">
+      <a class="navbar-brand me-auto" href="index.html">
+        The Starveil Institute of Magic and Arts
+      </a>
+      <br>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="grade_calculator.html">Calculator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="clubs.html">Guilds</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    </nav>
+    <div class="container">
+        <h1 style="font-family: DM Serif Display; color: rgb(255, 255, 255); font-weight: lighter; font-style: italic;">Caster Grade Calculator</h1>
+        
+        <div class="mb-3">
+            <div class="input-group">
+                <span class="input-group-text">First Name</span>
+                <input type="text" class="form-control" id="first_name" >
+            </div><br>
+            
+            <div class="input-group">
+                <span class="input-group-text">Last Name</span>
+                <input type="text" class="form-control" id="last_name" >
+            </div><br>
+
+            <div class="input-group">
+                <span class="input-group-text">Level and House</span>
+                <input type="text" class="form-control" id="grade_section" >
+            </div>
+        </div>
+
+        <h2 style="font-family: DM Serif Display; color: rgb(255, 255, 255); font-style: italic;">Enter your grades:</h2>
+        <h5 style="font-family: DM Serif Display; color: rgb(255, 255, 255);">Academic</h5>
+        
+        <div class="grades-container">
+            <div class="grade-input-group">
+                <div class="input-group">
+                    <span class="input-group-text">Thaumaturgy</span>
+                    <input type="text" class="form-control" id="science" placeholder="Grade">
+                </div>
+            </div>
+            
+            <div class="grade-input-group">
+                <div class="input-group">
+                    <span class="input-group-text">Spellcraft</span>
+                    <input type="text" class="form-control" id="math" placeholder="Grade">
+                </div>
+            </div>
+            
+            <div class="grade-input-group">
+                <div class="input-group">
+                    <span class="input-group-text">Mystic History</span>
+                    <input type="text" class="form-control" id="english" placeholder="Grade">
+                </div>
+            </div>
+            
+            <div class="grade-input-group">
+                <div class="input-group">
+                    <span class="input-group-text">Elixir Studies</span>
+                    <input type="text" class="form-control" id="filipino" placeholder="Grade">
+                </div>
+            </div>
+        </div>
+        <h5 style="font-family: DM Serif Display; color: rgb(255, 255, 255);">Non-Academic</h5>
+        <div class="grades-container">
+            <div class="grade-input-group">
+                <div class="input-group">
+                    <span class="input-group-text">Enchanted Arts</span>
+                    <input type="text" class="form-control" id="ict" placeholder="Grade">
+                </div>
+            </div>
+            
+            <div class="grade-input-group">
+                <div class="input-group">
+                    <span class="input-group-text">Aerial Athletics</span>
+                    <input type="text" class="form-control" id="pe" placeholder="Grade">
+                </div>
+            </div>
+
+            <div class="grade-input-group">
+                <div class="input-group">
+                    <span class="input-group-text">Cosmic Music</span>
+                    <input type="text" class="form-control" id="socialstudies" placeholder="Grade">
+                </div>
+            </div>
+
+        <div class="grade-input-group">
+                <div class="input-group">
+                    <span class="input-group-text">Creaturing 101</span>
+                    <input type="text" class="form-control" id="ve" placeholder="Grade">
+                </div>
+            </div>
+        </div>
+        <button class="btn" type="submit" py-click="general_weighted_average" style="font-family: Raleway; font-weight: bold; background-color:rgb(185, 146, 247); color: rgb(24, 24, 63);">Calculate GWA</button>
+        
+        <div id="student_info" style="font-family: Raleway;"></div>
+        <pre id="summary" style="font-family: Raleway;"><br></pre>
+        <div id="output" style="font-family: Raleway; background-color: rgb(185, 146, 247); color:rgb(24, 24, 63);"></div>
+    </div>
+</div>
+
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="py" src="main2.py"></script>
+</body>
+</html>

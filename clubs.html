@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guilds | Starveil Institute</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+body {
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.navbar {
+    padding: 15px 30px;
+    background: rgba(20, 15, 60, 0.6);
+    backdrop-filter: blur(6px);
+}
+.navbar-brand,.nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+.navbar-brand {
+    font-family: "DM Serif Display";
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+}
+.navbar-nav {
+    gap: 10px;
+}
+.nav-link {
+    font-family: Raleway;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    position: relative;
+}
+.nav-link:hover {
+    color: white !important;
+}
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 30%;
+}
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1 {
+    color: white;
+    font-weight: lighter;
+    font-style: italic;
+    font-family: "DM Serif Display";
+    text-align: center;
+    text-shadow: 0px 0px 30px #fff, 1px 1px 10px #280488;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+}
+select, button {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #0d0080;
+    border-radius: 4px;
+    background-color: white;
+    color: #261c4a;
+    font-family: Raleway;
+}
+button {
+    background-color: #c1b3f3;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #a089f3;
+}
+label {
+    color: white;
+    font-family: Raleway;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+}
+option {
+    font-family: Raleway;
+}
+
+#club-info {
+    font-family: Raleway;
+    padding: 12px;
+    border-radius: 5px;
+    margin: 50px auto;
+    color: white;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+}
+.center-container {
+    width: 100%;
+    text-align: center;
+}
+ul {
+    text-align: left;
+    font-size: 10px;
+}
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.349);      
+    border-radius: 4px;          
+    padding: 0.25rem 0.5rem;      
+    width: auto;                  
+    height: auto;
+    background-color: rgba(0,0,0,0.3); 
+}
+</style>
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid px-4">
+    <div class="d-flex align-items-center flex-nowrap w-100">
+      <a class="navbar-brand me-auto" href="index.html">
+        The Starveil Institute of Magic and Arts
+      </a>
+      <br>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="grade_calculator.html">Calculator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="clubs.html">Guilds</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+
+    <h1 style="margin-top: 20px";>Starveil Guilds Information</h1>
+    <br>
+    <div style="background-color: rgba(1, 1, 15, 0.301); margin-left: 50px; margin-right: 50px; border-radius: 20px;">
+    <div class= "center-container">
+    <br>
+    <label style="text-align: center;">Select a guild</label>
+    <br>
+    <select id="club-select" style="width: 50%; ">
+        <option value="">-- Select a guild --</option>
+        <option value="plants">Verdant Circle (Novice)</option>
+        <option value="potions">Crucible & Cauldron Society (Novice)</option>
+        <option value="brooms">Broombornes (Novice)</option>
+        <option value="music">Harmonic Enchanters (Novice)</option>
+        <option value="animals">Creatures' Keepers (Novice)</option>
+        <option value="threads">Glimmering Threads (Novice)</option>
+        <option value="conjure">Miniature Conjurors (Novice)</option>
+        <option value="dark">Shadowmancy (Scholars)</option>
+        <option value="light">Radiant Conclave (Scholars)</option>
+        <option value="elements">Elementalists (Scholars)</option>
+        <option value="spells">Duelity (Scholars)</option>
+        <option value="illusion">Illusionists Atelier (Scholars)</option>
+        <option value="time">Chronomancers (Elite)</option>
+        <option value="mind">Dominus Cognitia (Elite)</option>
+        <option value="reality">Realis Nexus (Elite)</option>
+    
+    </select>
+    <br>
+
+    <button id="show-info" py-click="show_club_info" style="width: 50%;">Show Guild Information</button>
+    </div>
+
+    <div class= "center-container">
+    <pre id="club-info"></pre>
+    <br>
+    </div>
+
+    <script type="py" src="main.py"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="py" src="main.py"></script>
+    </div>
+</body>
+</html>
